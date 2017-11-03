@@ -5,7 +5,7 @@ import CardSection from './CardSection';
 import Button from './Button';
 
 const AlbumDetail = ({album}) => {
-  
+
   const { title, artist, thumbnail_image, image, url } = album;
   const {
     thumbnailStyle,
@@ -14,19 +14,26 @@ const AlbumDetail = ({album}) => {
     headerTextStyle,
     imageStyle
   } = styles;
-  
+
+  // <Image
+  //   style={thumbnailStyle}
+  //   source={{ uri: thumbnail_image }}
+  // />
+  //
+  // <CardSection>
+  //   <Button onPress={() => Linking.openURL(url)}>
+  //     Buy Now
+  //   </Button>
+  // </CardSection>
+
   return (
     <Card>
       <CardSection>
-        <View style={thumbnailContainerStyle}>
-          <Image
-            style={thumbnailStyle}
-            source={{ uri: thumbnail_image }}
-          />
-        </View>
+        <View style={thumbnailContainerStyle}/>
         <View style={headerContentStyle}>
           <Text style={headerTextStyle}>{title}</Text>
           <Text>{artist}</Text>
+            <Text>Change</Text>
         </View>
       </CardSection>
 
@@ -35,12 +42,6 @@ const AlbumDetail = ({album}) => {
           style={imageStyle}
           source={{ uri: image }}
         />
-      </CardSection>
-
-      <CardSection>
-        <Button onPress={() => Linking.openURL(url)}>
-          Buy Now
-        </Button>
       </CardSection>
     </Card>
   );
@@ -53,7 +54,8 @@ const styles = {
     justifyContent: 'space-around'
   },
   headerTextStyle: {
-    fontSize: 18
+    fontSize: 40,
+    color: 'red'
   },
   thumbnailStyle: {
     height: 50,
